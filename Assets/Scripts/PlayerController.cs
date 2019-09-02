@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         Physics.Raycast(transformCastPoint, moveVector, out hit2, 1f, ground);
 
 
-        float slopeHeight = 0f;
+        float yVelocity = 0f;
 
         if (hit2.transform != null && hit2.collider != null){
             Debug.Log(hit2.normal);
@@ -95,15 +95,14 @@ public class PlayerController : MonoBehaviour
             float slopeNormalX = Mathf.Abs(hit2.normal.x);
             float slopeNormalY = Mathf.Abs(hit2.normal.z);
             
-            slopeHeight = slopeNormalX;
+            yVelocity = slopeNormalX;
 
             if (slopeNormalY > slopeNormalX){
-                slopeHeight = slopeNormalY;
+                yVelocity = slopeNormalY;
             }
-
         }
 
-        Vector3 movement = new Vector3(moveH, slopeHeight, moveV);
+        Vector3 movement = new Vector3(moveH, yVelocity, moveV);
 
         
 

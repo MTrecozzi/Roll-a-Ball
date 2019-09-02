@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957806c97d09aee4fa5091b2dc90a3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   moveH: 0
   moveV: 0
   touchDirection: {x: 0, y: 0, z: 0}
