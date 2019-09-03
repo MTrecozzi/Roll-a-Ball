@@ -29,11 +29,11 @@ public class PlayerController : MonoBehaviour
 
     public void Update(){
 
-        touchOverride = false;
+        Debug.Log(Input.touchCount);
 
         if (Input.touchCount > 0){
 
-            touchOverride = true;
+    
 
             Touch touch = Input.GetTouch(0);
 
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         touchDirection = touchDir;
 
-        //Debug.Log(touchDirection);
+        Debug.Log(touchDirection);
 
         } else if (Input.touchCount == 0){
             touchDirection = Vector3.zero;
@@ -66,6 +66,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        touchOverride = false;
+
+        if (Input.touchCount > 0){
+            touchOverride = true;
+        }
 
         velocity = rb.velocity;
 

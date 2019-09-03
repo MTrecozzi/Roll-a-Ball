@@ -125,7 +125,7 @@ MonoBehaviour:
   moveH: 0
   moveV: 0
   touchDirection: {x: 0, y: 0, z: 0}
-  touchOverride: 1
+  touchOverride: 0
   col: {fileID: 3807076937072403401}
   ground:
     serializedVersion: 2
