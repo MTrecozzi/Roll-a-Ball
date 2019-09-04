@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RollABall.unity
     guid: 1b8d1a4e307efbd4894836023fc06a8f
+  - enabled: 1
+    path: Assets/Scenes/Race.unity
+    guid: ba7315c650278db48b05492eb5931c6c
   m_configObjects: {}
