@@ -1,30 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-
     private Rigidbody rb;
-
     public float moveH;
     public float moveV;
-
     public Vector3 touchDirection;
-
     public bool touchOverride = false;
-
     public Collider col;
-
     public LayerMask ground;
-
     public Vector3 velocity;
+
+    [Header("Text Elements")]
+    public TMP_Text countText;
+    public TMP_Text winText;
+
+    private int count;
 
     // Start is called before the first frame update
     void Start()
     {
         this.rb = GetComponent<Rigidbody>();
+        count = 0;
+        SetCountText(count);
+        winText.text = "";
+    }
+
+    public void OnTriggerEnter(Collider col){
+        if (col.CompareTag("Pick Up")){
+            col.gameObject.SetActive(false);
+
+            count ++;
+            SetCountText(count);
+        }
+    }
+
+    public void SetCountText(int count){
+        countText.text = "Count: " + count;
+
+        if (count >= 10){
+            winText.text = "You Win!";
+        }
     }
 
     public void Update(){
@@ -33,11 +53,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.touchCount > 0){
 
-    
-
             Touch touch = Input.GetTouch(0);
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
 
             RaycastHit hit;
 
