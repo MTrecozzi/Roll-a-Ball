@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Tutorial by Jason Weinman, written by MT
 public static class Vector3Extensions
 {
     public static Vector3 With(this Vector3 original, float? x = null, float ? y = null, float ? z = null){
